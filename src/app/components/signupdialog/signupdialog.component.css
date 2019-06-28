@@ -1,0 +1,30 @@
+h1{
+    margin:20px;
+}
+
+.content{
+    height: 100%;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-top: 5px;
+    margin-left: 16px;
+  }
+  
+mat-radio-group{
+    width:100%;
+}
+
+.container{
+    margin:20px;
+}
+
+.example-form {
+    min-width: 150px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
