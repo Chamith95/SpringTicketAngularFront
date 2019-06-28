@@ -41,17 +41,17 @@
     </mat-tab>
     <mat-tab label="Organizations">  <h1 class="mat-headline">Register as an Organization</h1>
 
-      <form class="example-form">
+      <form class="example-form" [formGroup]="OrgForm">
           
         <div fxLayout="column" class="container" fxLayoutAlign="start start">
           <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="200px"> 
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Organization Name" >
+            <input formControlName="name" matInput placeholder="Organization Name" >
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Type of Organization</mat-label>
-            <mat-select [(value)]="selected">
+            <mat-select formControlName="type" [(value)]="selected">
               <mat-option value="Charity">Charity</mat-option>
               <mat-option value="Entertainment">Entertainment</mat-option>
               <mat-option value="Tech">Tech</mat-option>
@@ -60,15 +60,15 @@
         </div>
         
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" type="email">
+            <input formControlName="email" matInput placeholder="Email" type="email">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-              <input matInput placeholder="password" type="password">
+              <input matInput formControlName="password" placeholder="password" type="password">
             </mat-form-field>
 
           <mat-form-field class="example-full-width">
-          <textarea  matInput placeholder="description" type="text"></textarea>
+          <textarea  matInput formControlName="description" placeholder="description" type="text"></textarea>
           </mat-form-field>
       </div>
         </form> </mat-tab>
