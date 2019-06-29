@@ -1,0 +1,23 @@
+mat-sidenav-container,mat-sidenav-content,mat-sidenav{
+    height:100%;
+  }
+  
+  #cartcountbadge{
+    margin-left: 25px;
+  }
+  
+  .sidenav {
+    width: 200px;
+  }
+  
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  

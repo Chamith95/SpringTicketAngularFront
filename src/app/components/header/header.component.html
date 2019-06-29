@@ -1,19 +1,21 @@
 <mat-toolbar color="primary">
+    
     <span><a routerLink="/">Tickets</a></span>
     <span class="spacer"></span>
     <ul>
+
         <li >
-            <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Post</a>
-        </li>
-        <li >
-            <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+            <a *ngIf="!userService.isUserLoggedIn() && !OrgService.isOrgLoggedIn()" mat-button (click)="openLoginDialog()" routerLinkActive="mat-accent">Login</a>
         </li>
 
         <li >
-                <a mat-button (click)="openDialog()" routerLinkActive="mat-accent">Signup</a>
+                <a *ngIf="!OrgService.isOrgLoggedIn() && !userService.isUserLoggedIn()" mat-button (click)="openDialog()" routerLinkActive="mat-accent">Signup</a>
             </li>
         <li >
-            <button mat-button (click)="onLogout()">Logout</button>
+            <button *ngIf="userService.isUserLoggedIn()"mat-button (click)="userlogout()">Logout</button>
+        </li>
+        <li >
+            <button *ngIf="OrgService.isOrgLoggedIn()" mat-button (click)="orglogout()">Logout</button>
         </li>
 
     </ul>

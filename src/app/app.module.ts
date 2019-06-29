@@ -9,7 +9,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select'; 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,22 +17,31 @@ import { SignupdialogComponent } from './components/signupdialog/signupdialog.co
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatInputModule} from '@angular/material';
+import { LogindialogComponent } from './components/logindialog/logindialog.component';
+import { HttpInterceptorService } from './services/http-interceptor.service';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SignupdialogComponent,
+    LogindialogComponent,
+    SidenavComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatInputModule,
+    MatListModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatSelectModule,
     FormsModule,
+    MatSidenavModule,
     FlexLayoutModule,
     MatRadioModule,
     ReactiveFormsModule,
@@ -44,9 +53,11 @@ import {MatInputModule} from '@angular/material';
     MatDialogModule
   ],
   entryComponents: [
-    SignupdialogComponent
+    SignupdialogComponent,LogindialogComponent
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:HttpInterceptorService,multi:true}
+ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
