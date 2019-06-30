@@ -9,6 +9,7 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'orgHome',component:OrghomeComponent},
   {path:'newEvent',component:NewEventComponent},
+  {path:'updateEvent/:id',component:NewEventComponent},
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'event-card',
@@ -9,9 +10,13 @@ export class EventCardComponent implements OnInit {
 
   
   @Input() event: any;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+
+  updateEvent(id){
+    this.router.navigate(['updateEvent',id])
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EventService } from 'src/app/services/event.service';
 import { OrganizationService } from 'src/app/services/organization.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-event',
@@ -11,7 +12,10 @@ import { OrganizationService } from 'src/app/services/organization.service';
 export class NewEventComponent implements OnInit {
   date = new FormControl(new Date());
 
+  id:any
+
   
+
   EventForm = new FormGroup({
     name: new FormControl('',Validators.required),
     date: new FormControl(new Date(),Validators.required),
@@ -21,10 +25,26 @@ export class NewEventComponent implements OnInit {
     ticketcount:new FormControl('',Validators.required)
   });
 
-  constructor(private EventService:EventService,private orgService:OrganizationService) {
+  constructor(private EventService:EventService,private orgService:OrganizationService,private route:ActivatedRoute) {
    }
 
   ngOnInit() {
+    this.id=this.route.snapshot.params['id']
+    if(this.id){
+      this.EventService.getEvents(this.id).subscribe(data=>{
+        console.log(data);
+        let event:any=data
+        this.EventForm.setValue({
+          name:event.name,
+          date:event.date,
+          venue:event.venue,
+          dresstype:event.dresstype,
+          description:event.description,
+          ticketcount:event.ticketcount,
+        })
+      })
+    }
+    console.log(this.id);
   }
 
   submit(){

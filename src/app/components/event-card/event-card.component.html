@@ -76,8 +76,8 @@
 </mat-card-content>
 <mat-card-actions>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px" >
-  <button    (click)="onApprove(teacher.id)" mat-raised-button color="primary" >Edit</button>
-  <button  (click)="onUnApprove(teacher.id)"  mat-flat-button color="warn">Delete</button>
+  <button    (click)="updateEvent(event.eventid)" mat-raised-button color="primary" >Edit</button>
+  <button  (click)="deleteEvent(eventid.id)"  mat-flat-button color="warn">Delete</button>
 </div>
 </mat-card-actions>
 </mat-card>
