@@ -50,22 +50,45 @@ export class NewEventComponent implements OnInit {
   submit(){
     let orgid=this.orgService.getAuthenticatedOrg();
 
+
+
+    if(this.id){
+      
     let data={
       name: this.EventForm.get('name').value,
       orgid:orgid,
-      date: (this.EventForm.get('date').value).toLocaleDateString(),
+      date:(this.EventForm.get('date').value),
       venue: this.EventForm.get('venue').value,
       dresstype: this.EventForm.get('dresstype').value,
       description:this.EventForm.get('description').value,
       ticketcount:this.EventForm.get('ticketcount').value,
     }
+      this.EventService.updateEvent(this.id,data).subscribe(
+        data=>{
+          console.log(data);
+        }
+      )
+    }
+    else{
+      
+    let data={
+      name: this.EventForm.get('name').value,
+      orgid:orgid,
+      date:(this.EventForm.get('date').value).toLocaleDateString(),
+      venue: this.EventForm.get('venue').value,
+      dresstype: this.EventForm.get('dresstype').value,
+      description:this.EventForm.get('description').value,
+      ticketcount:this.EventForm.get('ticketcount').value,
+    }
+      this.EventService.createEvent(data).subscribe(
+        data=>{
+          console.log(data);
+        }
+      )
+    }
 
     
-     this.EventService.createEvent(data).subscribe(
-       data=>{
-         console.log(data);
-       }
-     )
+
   }
 
 }
