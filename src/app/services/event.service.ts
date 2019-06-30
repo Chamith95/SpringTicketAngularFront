@@ -17,6 +17,10 @@ export class EventService {
     return this.http.put(`http://localhost:8080/events/${id}`,event) 
   }
 
+  deleteEvent(id){
+    return this.http.delete(`http://localhost:8080/events/${id}`); 
+  }
+
   getOrgEvents(id){
     return this.http.get(`http://localhost:8080/events/${id}`);
   }

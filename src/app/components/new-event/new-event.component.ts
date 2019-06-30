@@ -66,6 +66,7 @@ export class NewEventComponent implements OnInit {
       this.EventService.updateEvent(this.id,data).subscribe(
         data=>{
           console.log(data);
+          this.EventForm.reset()
         }
       )
     }
@@ -83,6 +84,7 @@ export class NewEventComponent implements OnInit {
       this.EventService.createEvent(data).subscribe(
         data=>{
           console.log(data);
+          this.EventForm.reset();
         }
       )
     }

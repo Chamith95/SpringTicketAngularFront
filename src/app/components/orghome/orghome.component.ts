@@ -20,6 +20,20 @@ export class OrghomeComponent implements OnInit {
        this.events=data;
      }
    );
+
+   
   }
+
+  eventChange(id) {
+    console.log(id);
+    for (let i = 0; i < this.events.length; i++)
+      if (this.events[i].eventid == id) {
+        this.events.splice(i, 1);
+      }
+    // this.addalert("success", "you have successfully deleted the event");
+  }
+
+
+
 
 }
