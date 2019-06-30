@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { OrganizationService } from 'src/app/services/organization.service';
+import { Router } from '@angular/router';
 
 export const orgLogggedin=false;
 export const userLogggedin =false;
@@ -28,7 +29,7 @@ export class LogindialogComponent implements OnInit {
 
   });
 
-  constructor(private userService:UserService,private OrgService:OrganizationService) { }
+  constructor(private userService:UserService,private OrgService:OrganizationService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -52,6 +53,7 @@ export class LogindialogComponent implements OnInit {
           console.log(data);
           this.orgLogggedin=true
           this.userLogggedin=false;
+          this.router.navigate(['orgHome'])
         },error=>{
           this.orgLogggedin=false
         }

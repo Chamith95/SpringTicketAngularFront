@@ -6,6 +6,7 @@ import { User } from 'src/app/classes/user';
 import { LogindialogComponent } from '../logindialog/logindialog.component';
 import { OrganizationService } from 'src/app/services/organization.service';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit {
   userLogggedin=false;
 
 
-  constructor(public dialog: MatDialog,private userService:UserService,private OrgService:OrganizationService) { }
+  constructor(public dialog: MatDialog,private userService:UserService,private OrgService:OrganizationService,private router:Router) { }
 
   ngOnInit() {
     this.userLogggedin=this.userService.isUserLoggedIn();
@@ -60,6 +61,7 @@ export class HeaderComponent implements OnInit {
   orglogout(){
     this.OrgService.logout();
     this.orgLogggedin=false;
+    this.router.navigate([''])
   }
   
 

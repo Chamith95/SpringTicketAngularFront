@@ -1,0 +1,49 @@
+<h1 class="mat-display-1">New Event</h1>
+
+<div class="container">
+<form class="example-form" [formGroup]="EventForm">
+                
+    <div fxLayout="column" class="container" fxLayoutAlign="start start">
+      
+      <mat-form-field  class="example-full-width" >
+        <input formControlName="name" matInput placeholder="Event Name" >
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="100px">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Angular forms" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>DressCode</mat-label>
+        <mat-select formControlName="dresstype" [(value)]="selected">
+          <mat-option value="Formal">Formal</mat-option>
+          <mat-option value="Casual">Casual</mat-option>
+          <mat-option value="Unspecified">Unspecified</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width1">
+        <input matInput formControlName="ticketcount" placeholder="ticketcount" type="number">
+      </mat-form-field>
+ 
+    </div>
+
+      <mat-form-field  class="example-full-width" >
+        <input formControlName="venue" matInput placeholder="Venue" >
+      </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <textarea matInput formControlName="description" placeholder="description" type="text"></textarea>
+            </mat-form-field>
+
+    <div fxLayout="row" fxLayoutAlign="end end" >
+    <button mat-raised-button color="primary" (click)="submit()" >Submit</button>
+</div>
+  </div>
+  
+    </form>
+</div>
+
