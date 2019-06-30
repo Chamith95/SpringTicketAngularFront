@@ -12,4 +12,8 @@ export class EventService {
   createEvent(event){
     return this.http.post(`http://localhost:8080/events`,event) 
   }
+
+  getOrgEvents(id){
+    return this.http.get(`http://localhost:8080/events/${id}`);
+  }
 }

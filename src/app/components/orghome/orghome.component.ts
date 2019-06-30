@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from 'src/app/services/event.service';
+import { OrganizationService } from 'src/app/services/organization.service';
 
 @Component({
   selector: 'app-orghome',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrghomeComponent implements OnInit {
 
-  constructor() { }
+  events: any = [];
+  constructor(private EventService:EventService,private orgService:OrganizationService) { }
 
   ngOnInit() {
+   let orgId=this.orgService.getAuthenticatedOrg();
+   this.EventService.getOrgEvents(orgId).subscribe(
+     data=>{
+       console.log(data);
+       this.events=data;
+     }
+   );
   }
 
 }

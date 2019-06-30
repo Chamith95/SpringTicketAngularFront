@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import {MatCardModule} from '@angular/material/card';
+
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule,MatFormFieldModule,MatTabsModule, MatNativeDateModule} from '@angular/material';
@@ -26,6 +28,7 @@ import {MatListModule} from '@angular/material/list';
 import { NewEventComponent } from './components/new-event/new-event.component';
 import { HomeComponent } from './components/home/home.component';
 import { OrghomeComponent } from './components/orghome/orghome.component';
+import { EventCardComponent } from './components/event-card/event-card.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { OrghomeComponent } from './components/orghome/orghome.component';
     NewEventComponent,
     HomeComponent,
     OrghomeComponent,
+    EventCardComponent,
 
   ],
   imports: [
@@ -56,6 +60,7 @@ import { OrghomeComponent } from './components/orghome/orghome.component';
     MatRadioModule,
     ReactiveFormsModule,
     MatTabsModule,
+    MatCardModule,
     MatCheckboxModule,
     HttpClientModule,
     MatFormFieldModule,

@@ -1,0 +1,83 @@
+<mat-card class="example-card">
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxFlex=60>
+<mat-card-header>
+  <!-- <div mat-card-avatar class="example-header-image"></div> -->
+  <mat-card-title>{{event.name}}</mat-card-title>
+   <!-- <mat-card-subtitle>{{teacher.approved}}</mat-card-subtitle>  -->
+    </mat-card-header>
+     </div>
+     <!-- <div fxFlex=40 >
+<img mat-card-image  src="../../assets/images/person1.png" alt="Photo of a Shiba Inu">
+</div> -->
+</div>
+<mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-list>
+    <mat-list-item>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="200px">
+        <div>
+          Date
+        </div>
+        <div fxFlex>
+          {{event.date}}
+        </div>
+      </div>
+      </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="180px">
+            <div>
+              Venue
+            </div>
+            <div>
+              {{event.venue}}
+            </div>
+          </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="150px">
+            <div>
+              DressCode
+            </div>
+            <div>
+              {{event.dresstype}}
+            </div>
+          </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="150px">
+            <div>
+              Ticket Count
+            </div>
+            <div>
+              {{event.ticketcount}}
+            </div>
+          </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+    <div fxLayout="column" class="description" fxLayoutAlign="start start" fxLayoutGap="10px">
+        <div>
+         <strong>Description</strong> 
+        </div>
+        <div>
+          {{event.description}}
+        </div>
+    </div>
+</mat-list-item>
+    
+  
+    <!-- <mat-list-item>Item 3</mat-list-item> -->
+  </mat-list>
+  
+</mat-card-content>
+<mat-card-actions>
+  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px" >
+  <button    (click)="onApprove(teacher.id)" mat-raised-button color="primary" >Edit</button>
+  <button  (click)="onUnApprove(teacher.id)"  mat-flat-button color="warn">Delete</button>
+</div>
+</mat-card-actions>
+</mat-card>
