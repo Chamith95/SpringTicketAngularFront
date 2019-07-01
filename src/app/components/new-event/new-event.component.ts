@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EventService } from 'src/app/services/event.service';
 import { OrganizationService } from 'src/app/services/organization.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-new-event',
@@ -25,7 +26,7 @@ export class NewEventComponent implements OnInit {
     ticketcount:new FormControl('',Validators.required)
   });
 
-  constructor(private EventService:EventService,private orgService:OrganizationService,private route:ActivatedRoute) {
+  constructor(private EventService:EventService,private orgService:OrganizationService,private route:ActivatedRoute,private uiService:UiService,private router:Router) {
    }
 
   ngOnInit() {
@@ -66,7 +67,9 @@ export class NewEventComponent implements OnInit {
       this.EventService.updateEvent(this.id,data).subscribe(
         data=>{
           console.log(data);
+          this.uiService.showSnackbar("Updated Event SuccessFully",null,3000);
           this.EventForm.reset()
+          this.router.navigate(['orgHome']);
         }
       )
     }
@@ -84,6 +87,7 @@ export class NewEventComponent implements OnInit {
       this.EventService.createEvent(data).subscribe(
         data=>{
           console.log(data);
+          this.uiService.showSnackbar("Created Event SuccessFully",null,3000);
           this.EventForm.reset();
         }
       )

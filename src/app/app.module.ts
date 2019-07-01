@@ -29,6 +29,7 @@ import { NewEventComponent } from './components/new-event/new-event.component';
 import { HomeComponent } from './components/home/home.component';
 import { OrghomeComponent } from './components/orghome/orghome.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { EventCardComponent } from './components/event-card/event-card.component
     FormsModule,
     MatDatepickerModule,
     MatSidenavModule,
+    MatSnackBarModule,
     FlexLayoutModule,
     MatRadioModule,
     ReactiveFormsModule,

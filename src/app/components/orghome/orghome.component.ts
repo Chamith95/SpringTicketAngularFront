@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/services/event.service';
 import { OrganizationService } from 'src/app/services/organization.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-orghome',
@@ -10,7 +11,7 @@ import { OrganizationService } from 'src/app/services/organization.service';
 export class OrghomeComponent implements OnInit {
 
   events: any = [];
-  constructor(private EventService:EventService,private orgService:OrganizationService) { }
+  constructor(private EventService:EventService,private orgService:OrganizationService,private Uiservice:UiService) { }
 
   ngOnInit() {
    let orgId=this.orgService.getAuthenticatedOrg();
@@ -30,6 +31,7 @@ export class OrghomeComponent implements OnInit {
       if (this.events[i].eventid == id) {
         this.events.splice(i, 1);
       }
+      this.Uiservice.showSnackbar("Event Deleted Successfully",null,3000);
     // this.addalert("success", "you have successfully deleted the event");
   }
 

@@ -28,4 +28,8 @@ export class EventService {
   getEvents(id){
     return this.http.get(`http://localhost:8080/events/event/${id}`);
   }
+
+  getAllEvents(){
+    return this.http.get(`http://localhost:8080/events/all`);
+  }
 }

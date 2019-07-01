@@ -75,9 +75,13 @@
   
 </mat-card-content>
 <mat-card-actions>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px" >
+  <div *ngIf="OrgService.getAuthenticatedOrg()" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px" >
   <button    (click)="updateEvent(event.eventid)" mat-raised-button color="primary" >Edit</button>
   <button  (click)="deleteEvent(event.eventid)"  mat-flat-button color="warn">Delete</button>
+</div>
+<div *ngIf="!OrgService.getAuthenticatedOrg()" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px" >
+<button  mat-raised-button *ngIf="!state" (click)="going(event.eventid)"color="primary" >Going</button>
+<button  mat-raised-button *ngIf="state" (click)="notgoing(event.eventid)" color="warn" >Not Going</button>
 </div>
 </mat-card-actions>
 </mat-card>

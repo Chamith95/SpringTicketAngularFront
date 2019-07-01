@@ -1,5 +1,9 @@
 <div class="container">
-    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+    <h1 *ngIf="events.length==0" class="mat-display-1">No Events Available</h1>
+    <div *ngIf="events" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
     <event-card *ngFor="let event of events" (eventchange)="eventChange($event)" [event]="event">
       </event-card>
+    </div>
+
+   
     </div>
